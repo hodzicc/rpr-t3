@@ -1,19 +1,25 @@
 package ba.unsa.etf.rpr.t3;
 
+import java.util.Set;
+
+import static ba.unsa.etf.rpr.t3.City.SARAJEVO;
+
 /**
- * Hello world!
- *
+ * Main class for PhoneBook application
+ * @author Amna Hodzic
+ * @version 1.0
  */
 public class ETFPhoneBook
 {
+    /**
+     * Entry point method for ETFPhoneBook program
+     * @param args
+     */
     public static void main( String[] args )
     {
-        PhoneBook Pbook = new PhoneBook();
-        MobilePhoneNumber number= new MobilePhoneNumber(61,"291-673");
-        Pbook.Add("Amna",number);
-        String ime = Pbook.GetName(number);
-        System.out.println(Pbook.GetPhoneNum(ime));
-        System.out.println(ime);
+
+
+
 
     }
 }

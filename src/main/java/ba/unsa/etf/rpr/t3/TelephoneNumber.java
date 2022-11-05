@@ -5,7 +5,7 @@ import static java.util.Objects.hash;
 public class TelephoneNumber extends PhoneNumber {
     private String num;
     private City city;
-    private TelephoneNumber(City city, String num){
+    public TelephoneNumber(City city, String num){
            this.city=city;
            this.num=num;
     }

@@ -7,14 +7,19 @@ public class PhoneBook {
     {
         map.put(name,num);
     }
-    public String GetPhoneNum(String name){
+    public String GetPhoneNum(String name) throws WrongNameException {
+        if(!map.containsKey(name))
+        {
+            throw new WrongNameException("The person with the given name does not exist in the phone book.");
+        }
         PhoneNumber num = (PhoneNumber) map.get(name);
         return num.Print();
     }
     public String GetName(PhoneNumber num1){
         for(HashMap.Entry<String,PhoneNumber> entry: map.entrySet()){
-            if(entry.getValue().equals(num1))
+            if(num1.Print().equals(entry.getValue().Print()))
             {
+
                 String name1= entry.getKey();
                 return name1;
             }
@@ -26,8 +31,8 @@ public class PhoneBook {
         for(HashMap.Entry<String,PhoneNumber> entry: map.entrySet()){
             if(Character.compare(entry.getKey().charAt(0),s)==0)
             {
-                System.out.println(i+". "+entry.getKey()+" - ");
-                   entry.getValue().Print();
+                return i+1+". "+entry.getKey()+" - "+entry.getValue().Print();
+
             }
         }
         return null;
@@ -50,7 +55,7 @@ public class PhoneBook {
 
     }
     public Set<PhoneNumber> NumbersFrom(City g){
-        HashSet<PhoneNumber> numbers = new HashSet<>();
+        LinkedHashSet<PhoneNumber> numbers = new LinkedHashSet<>();
         TreeMap<String,PhoneNumber> numMap = new TreeMap<>();
         for(HashMap.Entry<String,PhoneNumber> entry: map.entrySet()){
             if(entry.getValue() instanceof TelephoneNumber)
@@ -65,8 +70,10 @@ public class PhoneBook {
         Iterator<Map.Entry<String,PhoneNumber>> it = numMap.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry<String,PhoneNumber> entry = it.next();
+        //    System.out.println(entry.getKey());
             numbers.add(entry.getValue());
         }
+
         return numbers;
 
     }
