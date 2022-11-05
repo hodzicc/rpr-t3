@@ -27,38 +27,38 @@ class PhoneBookTest {
     @org.junit.jupiter.api.Test
     void firstLetter() {
         PhoneBook pb = new PhoneBook();
-        pb.Add("Sara Sarac", new TelephoneNumber(SARAJEVO, "123-156"));
-        pb.Add("Pero Peric", new TelephoneNumber(SARAJEVO, "123-656"));
-        pb.Add("Ivo Ivic", new MobilePhoneNumber(61, "321-645"));
-        pb.Add("Jozo Jozic", new MobilePhoneNumber(64, "987-654"));
-        pb.Add("John Smith", new InternationalNumber("+1", "23 45-67-89"));
-        assertEquals( "1. Ivo Ivic - 061/321-645", pb.FirstLetter('I'));
+        pb.Add("Merima Hadzic", new TelephoneNumber(SARAJEVO, "123-156"));
+        pb.Add("Lejla Alibegovic", new TelephoneNumber(SARAJEVO, "123-656"));
+        pb.Add("Ivan Milanovic", new MobilePhoneNumber(61, "321-645"));
+        pb.Add("Milan Ivanic", new MobilePhoneNumber(64, "987-654"));
+        pb.Add("Brad Pitt", new InternationalNumber("+1", "23 45-67-89"));
+        assertEquals( "1. Ivan Milanovic - 061/321-645", pb.FirstLetter('I'));
     }
 
     @org.junit.jupiter.api.Test
     void comingFrom() {
         PhoneBook pb = new PhoneBook();
-        pb.Add("Ivo Ivic", new TelephoneNumber(SARAJEVO, "123-456"));
-        pb.Add("Sara Sarac", new TelephoneNumber(SARAJEVO, "123-156"));
-        pb.Add("Meho Mehic", new TelephoneNumber(SARAJEVO, "123-656"));
-        pb.Add("Pero Peric", new MobilePhoneNumber(64, "987-654"));
-        pb.Add("John Smith", new InternationalNumber("+1", "23 45-67-89"));
+        pb.Add("Ivan Milanovic", new TelephoneNumber(SARAJEVO, "123-456"));
+        pb.Add("Merima Hadzic", new TelephoneNumber(SARAJEVO, "123-156"));
+        pb.Add("Lejla Alibegovic", new TelephoneNumber(SARAJEVO, "123-656"));
+        pb.Add("Milan Ivanic", new MobilePhoneNumber(64, "987-654"));
+        pb.Add("Dwayne Johnson", new InternationalNumber("+1", "23 45-67-89"));
         Set<String> set = pb.ComingFrom(SARAJEVO);
         String result = "";
         for (String ime: set) {
             result += ime + ",";
         }
-        assertEquals("Ivo Ivic,Meho Mehic,Sara Sarac,", result);
+        assertEquals("Ivan Milanovic,Lejla Alibegovic,Merima Hadzic,", result);
     }
 
     @org.junit.jupiter.api.Test
     void numbersFrom() {
         PhoneBook pb = new PhoneBook();
-        pb.Add("Ivo Ivic", new TelephoneNumber(SARAJEVO, "123-456"));
-        pb.Add("Sara Sarac", new TelephoneNumber(SARAJEVO, "123-156"));
-        pb.Add("Meho Mehic", new TelephoneNumber(SARAJEVO, "123-656"));
-        pb.Add("Pero Peric", new MobilePhoneNumber(64, "987-654"));
-        pb.Add("John Smith", new InternationalNumber("+1", "23 45-67-89"));
+        pb.Add("Ivan Milanovic", new TelephoneNumber(SARAJEVO, "123-456"));
+        pb.Add("Merima Hadzic", new TelephoneNumber(SARAJEVO, "123-156"));
+        pb.Add("Milan Ivanovic", new TelephoneNumber(SARAJEVO, "123-656"));
+        pb.Add("Lejla Alibegovic", new MobilePhoneNumber(64, "987-654"));
+        pb.Add("Vin Diesel", new InternationalNumber("+1", "23 45-67-89"));
         Set<PhoneNumber> set = pb.NumbersFrom(SARAJEVO);
         String result = "";
         for (PhoneNumber num: set) {
